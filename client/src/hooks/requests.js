@@ -1,4 +1,5 @@
-const API_URL = 'http://localhost:8000/v1';
+// const API_URL = 'http://localhost:8000/v1';
+const API_URL = 'v1'; // relative to where files is hosted
 
 async function httpGetPlanets() {
   const response = await fetch(`${API_URL}/planets`);
