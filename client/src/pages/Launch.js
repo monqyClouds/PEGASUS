@@ -13,7 +13,7 @@ const styles = (theme) => ({
 })
 
 const Launch = (props) => {
-  const {classes, ...rest} = props;
+  const {classes} = props;
   
   const selectorBody = useMemo(() => {
     return props.planets?.map((planet) => (
