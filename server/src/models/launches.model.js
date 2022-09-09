@@ -60,15 +60,13 @@ async function populateLaunches() {
 }
 
 async function loadLaunchData() {
-	const firstLaunch = await findLaunch({
-		flightNumber: 1,
-		rocket: "Falcon 1",
-		mission: "FalconSat",
-	});
+	// const firstLaunch = await findLaunch({
+	// 	flightNumber: 1,
+	// 	rocket: "Falcon 1",
+	// 	mission: "FalconSat",
+	// });
 
-	if (!firstLaunch) {
-		await populateLaunches();
-	}
+	await populateLaunches();
 }
 
 async function findLaunch(filter) {

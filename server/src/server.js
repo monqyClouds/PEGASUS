@@ -1,5 +1,7 @@
 const http = require("http");
 
+const nodeSchedule = require("node-schedule");
+
 require('dotenv').config();
 
 const app = require('./app');
@@ -15,6 +17,10 @@ async function startServer() {
   await mongoConnect();
   await loadPlanetsData();
   await loadLaunchData();
+
+  nodeSchedule.scheduleJob("58 23 14 * *", async function() {
+    await loadLaunchData();
+  })
   
   server.listen(PORT, () => {
     console.log(`listening on port ${PORT}`)
