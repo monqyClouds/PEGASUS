@@ -68,7 +68,7 @@ const AppLayout = props => {
         corners={4} 
         style={{visibility: frameVisible ? "visible" : "hidden"}}>
         {anim => (
-          <div style={{padding: "20px"}}>
+          <div style={{padding: "20px", overflow: "scroll"}}>
           <Switch>
             <Route exact path="/">
               <Launch 

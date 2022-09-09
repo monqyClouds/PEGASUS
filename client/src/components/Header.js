@@ -9,25 +9,40 @@ import { Link } from "react-router-dom";
 import Clickable from "./Clickable";
 import Centered from "./Centered";
 
-const styles = theme => ({
+const styles = (theme) => ({
   root: {
     display: "flex",
     flexDirection: "row",
-    lineHeight: "80px",
+    height: "80px"
   },
   logo: {
     display: "inherit",
     marginTop: "15px",
   },
   nav: {
-    display: "inherit",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+
+    "@media (max-width: 800px)": {
+      width: "100%",
+      display: "flex",
+      justifyContent: "center",
+    },
+
+    "@media (max-width: 380px)": {
+      width: "max-content",
+      maxWidth: "80%",
+      margin: "0 auto",
+    },
   },
   banner: {
-    display: "inherit",
+    display: "flex",
     fontWeight: "bold",
     marginLeft: "10px",
     marginRight: "15px",
     fontSize: 28,
+    alignItems: "center"
   },
   clickable: {
     fontSize: 21,
@@ -39,13 +54,20 @@ const styles = theme => ({
   link: {
     color: theme.color.content,
     textDecoration: "none",
+    display: "flex",
+    alignItems: "center",
+
+    "@media (max-width: 380px)": {
+      flexDirection: "column",
+      lineHeight: "40px"
+    },
   },
   button: {
     padding: [0, theme.padding / 2],
   },
   "@media (max-width: 800px)": {
     logo: {
-      display: "none",
+      // display: "none",
     },
     img: {
       display: "none",
@@ -58,7 +80,7 @@ const styles = theme => ({
     },
     clickable: {
       fontSize: 16,
-    }
+    },
   },
 });
 
@@ -73,7 +95,7 @@ const Header = props => {
       }} />
       <Logo animate size={50} className={classes.logo} layer="header" />
       <Words animate className={classes.banner}>
-        NASA Mission Control
+        PEGASUS Control Dock
       </Words>
       <nav className={`${classes.nav}`}>
         <Clickable className={classes.clickable} onClick={onNav}>

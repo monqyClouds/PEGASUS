@@ -24,30 +24,30 @@ const History = (props) => {
 	}, [props.launches]);
 
 	return (
-		<article id="history">
-			<Appear animate show={props.entered}>
-				<Paragraph>
-					History of mission launches including SpaceX launches starting from
-					the year 2006.
-				</Paragraph>
-				<Table animate>
-					<table style={{ tableLayout: "fixed" }}>
-						<thead>
-							<tr>
-								<th style={{ width: "2rem" }}></th>
-								<th style={{ width: "3rem" }}>No.</th>
-								<th style={{ width: "9rem" }}>Date</th>
-								<th>Mission</th>
-								<th style={{ width: "7rem" }}>Rocket</th>
-								<th>Customers</th>
-							</tr>
-						</thead>
-						<tbody>{tableBody}</tbody>
-					</table>
-				</Table>
-			</Appear>
-		</article>
-	);
+    <article id="history">
+      <Appear animate show={props.entered}>
+        <Paragraph>
+          History of mission launches including SpaceX launches starting from
+          the year 2006.
+        </Paragraph>
+        <Table animate>
+          <table style={{ tableLayout: "fixed", width: "100%"}}>
+            <thead>
+              <tr>
+                <th style={{ width: "2rem" }}></th>
+                <th style={{ width: "3rem" }}>No.</th>
+                <th style={{ width: "9rem" }}>Date</th>
+                <th style={{ width: "7rem" }}>Mission</th>
+                <th style={{ width: "7rem" }}>Rocket</th>
+                <th style={{ width: "7rem" }}>Customers</th>
+              </tr>
+            </thead>
+            <tbody>{tableBody}</tbody>
+          </table>
+        </Table>
+      </Appear>
+    </article>
+  );
 };
 
 export default History;

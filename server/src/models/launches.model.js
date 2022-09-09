@@ -51,6 +51,7 @@ async function populateLaunches() {
 			launchDate: launchDoc["date_local"],
 			upcoming: launchDoc["upcoming"],
 			success: launchDoc["success"],
+			destination: "N/A",
 			customers,
 		};
 
@@ -87,7 +88,7 @@ async function getLatestFlightNumber() {
 async function getAllLaunches(skip, limit) {
 	return await launchesDB
 		.find({}, { _id: 0, __v: 0 })
-		.sort({launchDate: -1})
+		.sort({ launchDate: -1 })
 		.skip(skip)
 		.limit(limit);
 }
@@ -113,7 +114,8 @@ async function scheduleNewLaunch(launch) {
 	const validProcess = await isValidPlanet(launch.target);
 	if (!validProcess) throw new Error("No matching planet found");
 
-	const newFlightNumber = await getLatestFlightNumber();
+	const latestFlightNumber = await getLatestFlightNumber();
+	const newFlightNumber = latestFlightNumber + 1;
 
 	const newlaunch = Object.assign(launch, {
 		success: true,
