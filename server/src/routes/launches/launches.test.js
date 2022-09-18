@@ -4,8 +4,9 @@ const { mongoConnect, mongoDisconnect } = require("../../services/mongo");
 const { loadPlanetsData } = require("../../models/planets.model");
 
 describe("LAUNCHES API", () => {
+	const MONGO_URL = "mongodb://127.0.0.1";
 	beforeAll(async () => {
-		await mongoConnect();
+		await mongoConnect(MONGO_URL);
 		await loadPlanetsData();
 	});
 
