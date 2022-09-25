@@ -26,3 +26,5 @@ To run the project on PM2, run "npm run deploy-cluster" in the root
 # Testing
 Jest and Supertest are the 2 libraries used to test the backend code and React-test is what is used on the frontend.
 To run this test, run "npm run test" in the project root folder
+To test only the backend, run "npm run test" in the server folder
+To test only the backend on watch mode, run "npm run test-watch" on the server folder
